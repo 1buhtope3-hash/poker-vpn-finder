@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Finder для покер-румов</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>VPN Finder <span class="highlight">для покер-румов</span></h1>
+            </div>
+            <p class="subtitle">Найдите подходящую страну для игры в вашем покер-руме</p>
+        </header>
+
+        <main class="main-content">
+            <div class="cards-container">
+                <!-- Карточка 1: Выбор по руму -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-dice card-icon"></i>
+                        <h2>Поиск по покер-руму</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="room-select">Выберите один или несколько румов:</label>
+                            <div class="multi-select-container">
+                                <div class="selected-rooms" id="selected-rooms"></div>
+                                <div class="search-input-container">
+                                    <input type="text" id="room-search" placeholder="Начните вводить название рума...">
+                                    <i class="fas fa-search search-icon"></i>
+                                </div>
+                                <div class="dropdown-rooms" id="rooms-dropdown"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="results-section">
+                            <div class="result-box">
+                                <h3><i class="fas fa-check-circle allowed-icon"></i> Разрешённые страны</h3>
+                                <div class="countries-list" id="allowed-countries"></div>
+                            </div>
+                            <div class="result-box">
+                                <h3><i class="fas fa-times-circle disallowed-icon"></i> Запрещённые страны</h3>
+                                <div class="countries-list" id="disallowed-countries"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 2: Выбор по стране -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-globe-europe card-icon"></i>
+                        <h2>Поиск по стране</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="country-input">Введите страну или выберите из списка:</label>
+                            <div class="search-input-container">
+                                <input type="text" id="country-input" list="countries-list" placeholder="Например: Россия">
+                                <i class="fas fa-chevron-down search-icon"></i>
+                                <datalist id="countries-list"></datalist>
+                            </div>
+                        </div>
+
+                        <div class="results-section">
+                            <div class="result-box full-width">
+                                <h3><i class="fas fa-list-ul"></i> Доступность по румам</h3>
+                                <div class="rooms-grid" id="rooms-by-country"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 3: Сравнение румов -->
+            <div class="card comparison-card">
+                <div class="card-header">
+                    <i class="fas fa-balance-scale card-icon"></i>
+                    <h2>Сравнение нескольких румов</h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <p class="help-text">Выберите два или более рума, чтобы увидеть общие разрешённые страны:</p>
+                        <div class="comparison-inputs">
+                            <div class="comparison-select">
+                                <select id="compare-room1" class="modern-select">
+                                    <option value="">Выберите первый рум</option>
+                                </select>
+                            </div>
+                            <div class="comparison-select">
+                                <select id="compare-room2" class="modern-select">
+                                    <option value="">Выберите второй рум</option>
+                                </select>
+                            </div>
+                            <div class="comparison-select">
+                                <select id="compare-room3" class="modern-select">
+                                    <option value="">Выберите третий рум (опционально)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-results">
+                        <div class="result-box">
+                            <h3><i class="fas fa-check-double"></i> Общие разрешённые страны</h3>
+                            <div class="countries-list" id="common-countries"></div>
+                            <div class="stats">
+                                <span id="common-count">0 стран</span>
+                                <span id="common-percentage">0% совпадений</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2026 VPN Finder для покер-румов</p>
+            <p class="footer-note">Данные обновляются в соответствии с правилами покер-румов</p>
+            <div class="footer-links">
+                <a href="#" id="export-data"><i class="fas fa-download"></i> Экспорт данных</a>
+                <a href="#" id="refresh-data"><i class="fas fa-sync-alt"></i> Обновить данные</a>
+            </div>
+        </footer>
+    </div>
+
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
