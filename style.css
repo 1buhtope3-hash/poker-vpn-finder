@@ -260,6 +260,18 @@ body {
     border-radius: 2px;
 }
 
+.dropdown-group {
+    padding: 0.5rem 1rem 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    background: var(--hover-bg);
+    position: sticky;
+    top: 0;
+}
+
 .selected-tags {
     display: flex;
     flex-wrap: wrap;
@@ -363,6 +375,13 @@ body {
     color: var(--success-light);
 }
 
+.country-tag.alternative {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: var(--warning-color);
+    color: var(--warning-color);
+    cursor: help;
+}
+
 .country-tag.disallowed {
     background: rgba(239, 68, 68, 0.1);
     border-color: var(--danger-color);
@@ -407,14 +426,34 @@ body {
     color: var(--success-light);
 }
 
+.room-item .status.alternative {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--warning-color);
+}
+
 .room-item .status.disallowed {
     background: rgba(239, 68, 68, 0.15);
     color: var(--danger-light);
 }
 
 .room-item .status.unknown {
-    background: rgba(245, 158, 11, 0.15);
-    color: var(--warning-color);
+    background: rgba(113, 113, 122, 0.15);
+    color: var(--text-muted);
+}
+
+.room-item .room-note {
+    display: block;
+    width: 100%;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    word-break: break-word;
+}
+
+.rooms-summary {
+    grid-column: 1 / -1;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
 }
 
 .empty-state {
@@ -436,6 +475,27 @@ body {
 .footer-note {
     margin-top: 0.25rem;
     font-size: 0.8rem;
+}
+
+.footer-credit {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.footer-credit a {
+    color: var(--primary-light);
+    text-decoration: underline;
+    text-decoration-color: rgba(129, 140, 248, 0.4);
+    transition: color 0.2s;
+}
+
+.footer-credit a:hover {
+    color: var(--primary-color);
+}
+
+.result-box h3 .icon-alternative {
+    color: var(--warning-color);
 }
 
 .footer-links {

@@ -35,11 +35,15 @@
                     </div>
                     <div class="results-section">
                         <div class="result-box">
-                            <h3><i class="fas fa-check-circle icon-allowed"></i> Разрешённые страны</h3>
+                            <h3><i class="fas fa-check-circle icon-allowed"></i> Разрешённые для всех выбранных</h3>
                             <div class="countries-grid" id="allowed-countries"></div>
                         </div>
                         <div class="result-box">
-                            <h3><i class="fas fa-times-circle icon-disallowed"></i> Запрещённые страны</h3>
+                            <h3><i class="fas fa-exchange-alt icon-alternative"></i> Только через альтернативный домен</h3>
+                            <div class="countries-grid" id="alternative-countries"></div>
+                        </div>
+                        <div class="result-box">
+                            <h3><i class="fas fa-times-circle icon-disallowed"></i> Недоступные (запрещены или нет данных)</h3>
                             <div class="countries-grid" id="disallowed-countries"></div>
                         </div>
                     </div>
@@ -68,7 +72,8 @@
 
         <footer class="footer">
             <p>© 2026 VPN Finder для покер-румов</p>
-            <p class="footer-note">Данные обновлены: январь 2026</p>
+            <p class="footer-note" id="data-updated">Данные обновляются автоматически из Google-таблицы</p>
+            <p class="footer-credit">Честно спиз.. взято у <a href="https://docs.google.com/spreadsheets/d/1T99WJ_UVMVZ6kF0NgQvroq40Pk-erXqC9cwkE0pbFVA/edit?gid=159803688#gid=159803688" target="_blank" rel="noopener">GipsyTeam</a> — Спасибо за информацию!</p>
         </footer>
     </div>
 
@@ -78,7 +83,6 @@
 
     <div class="toast-container" id="toast-container"></div>
 
-    <script src="data.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
